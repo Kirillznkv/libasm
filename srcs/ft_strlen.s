@@ -1,6 +1,6 @@
 global ft_strlen
 
-segment .text
+section .text
 ft_strlen:
 	mov rax, 0
 	cmp byte[rdi + rax], 0

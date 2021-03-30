@@ -6,7 +6,7 @@
 #    By: kshanti <kshanti@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/29 23:36:22 by kshanti           #+#    #+#              #
-#    Updated: 2021/03/30 00:20:01 by kshanti          ###   ########.fr        #
+#    Updated: 2021/03/30 11:24:02 by kshanti          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ NAME = libasm.a
 HEAD = head.h
 SRCS = ./srcs/
 
-S_FILE = $(srcs)ft_strlen.s
+S_FILE = $(SRCS)ft_strlen.s
 
 O_FILE = $(S_FILE:.s=.o)
 
@@ -23,12 +23,11 @@ all:
 	$(MAKE) $(NAME) -j 4
 
 $(NAME): $(O_FILE)
-	gcc -o $(O_FILE) main.c
-	#gcc $(O_FILE) ./libft/libft.a $(MLX) -o $(NAME)
+	ar -rcs $(NAME) $(O_FILE)
+	gcc $(NAME) main.c -o asm
 
 %.o: %.s $(HEAD)
-	nasm -felf64 $< -o $@
-	#gcc -c $(СFLAGS) $< -o $@
+	nasm -felf64 $<
 
 clean:
 	@rm -f $(O_FILE)
