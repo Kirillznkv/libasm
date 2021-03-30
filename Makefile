@@ -6,7 +6,7 @@
 #    By: kshanti <kshanti@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/29 23:36:22 by kshanti           #+#    #+#              #
-#    Updated: 2021/03/30 14:11:24 by kshanti          ###   ########.fr        #
+#    Updated: 2021/03/30 14:38:18 by kshanti          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ NAME = libasm.a
 HEAD = head.h
 SRCS = ./srcs/
 
-S_FILE = $(SRCS)ft_strlen.s
+S_FILE = $(SRCS)ft_strlen.s $(SRCS)ft_strcpy.s
 
 O_FILE = $(S_FILE:.s=.o)
 
