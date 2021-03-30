@@ -6,16 +6,21 @@
 /*   By: kshanti <kshanti@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 00:14:04 by kshanti           #+#    #+#             */
-/*   Updated: 2021/03/30 23:11:19 by kshanti          ###   ########.fr       */
+/*   Updated: 2021/03/31 01:15:12 by kshanti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "head.h"
+#include "unistd.h"
 
 int		main()
 {
-	char *s = strdup("");
-	printf("len = %s\n", ft_strcpy(s, "cc"));
-	free(s);
+	int i;
+	char s[15];
+
+	i = ft_read(1, &s, 5);
+	if (errno)
+		perror("error");
+	printf("\n|%s|\n", s);
 	return (0);
 }
