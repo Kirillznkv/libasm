@@ -6,7 +6,7 @@
 /*   By: kshanti <kshanti@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 00:14:04 by kshanti           #+#    #+#             */
-/*   Updated: 2021/03/30 11:25:28 by kshanti          ###   ########.fr       */
+/*   Updated: 2021/03/30 12:20:51 by kshanti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,6 @@
 
 int		main()
 {
-	printf("len = %zu\n", ft_strlen("12345"));
+	printf("len = %zu\n", ft_strlen(""));
 	return (0);
 }

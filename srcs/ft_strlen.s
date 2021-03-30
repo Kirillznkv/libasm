@@ -1,8 +1,8 @@
-global ft_strlen
+global _ft_strlen
 
 section .text
-ft_strlen:
-	mov rax, 0
+_ft_strlen:
+	xor rax, rax
 	cmp byte[rdi + rax], 0
 	jne .loop
 	ret

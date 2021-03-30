@@ -6,7 +6,7 @@
 #    By: kshanti <kshanti@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/29 23:36:22 by kshanti           #+#    #+#              #
-#    Updated: 2021/03/30 11:24:02 by kshanti          ###   ########.fr        #
+#    Updated: 2021/03/30 14:11:24 by kshanti          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,16 +24,17 @@ all:
 
 $(NAME): $(O_FILE)
 	ar -rcs $(NAME) $(O_FILE)
-	gcc $(NAME) main.c -o asm
+	gcc $(NAME) main.c
 
 %.o: %.s $(HEAD)
-	nasm -felf64 $<
+	nasm -f macho64 $<
 
 clean:
 	@rm -f $(O_FILE)
 
 fclean: clean
 	@rm -f $(NAME)
+	@rm -f a.out
 
 re: fclean all
 
