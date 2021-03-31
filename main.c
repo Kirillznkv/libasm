@@ -6,17 +6,13 @@
 /*   By: kshanti <kshanti@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 00:14:04 by kshanti           #+#    #+#             */
-/*   Updated: 2021/04/01 01:18:13 by kshanti          ###   ########.fr       */
+/*   Updated: 2021/04/01 01:32:44 by kshanti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/head.h"
-#include "unistd.h"
 
 int		main()
 {
-	int a;
-	a = ft_strcmp(NULL, NULL);
-	printf("|%d|\n", a);
 	return (0);
 }
