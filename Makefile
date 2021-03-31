@@ -6,19 +6,29 @@
 #    By: kshanti <kshanti@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/29 23:36:22 by kshanti           #+#    #+#              #
-#    Updated: 2021/03/31 23:31:01 by kshanti          ###   ########.fr        #
+#    Updated: 2021/04/01 00:58:37 by kshanti          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libasm.a
 
-HEAD = head.h
 SRCS = ./srcs/
+BN = ./bonus/
 
-S_FILE = $(SRCS)ft_strlen.s $(SRCS)ft_strcpy.s $(SRCS)ft_write.s $(SRCS)ft_read.s $(SRCS)ft_strcmp.s $(SRCS)ft_strdup.s\
-			$(SRCS)ft_list_size_bonus.s
+S_FILE =		$(SRCS)ft_strlen.s $(SRCS)ft_strcpy.s\
+				$(SRCS)ft_write.s $(SRCS)ft_read.s\
+				$(SRCS)ft_strcmp.s $(SRCS)ft_strdup.s
 
-O_FILE = $(S_FILE:.s=.o)
+S_FILE_BONUS =	$(BN)ft_list_size_bonus.s
+
+ifdef ADD_BONUS
+	HEAD = head.h
+	O_FILE = $(S_FILE:.s=.o) $(S_FILE_BONUS:.s=.o)
+else
+	HEAD = head_bonus.h
+	O_FILE = $(S_FILE:.s=.o)
+endif
+
 
 all:
 	$(MAKE) $(NAME) -j 4
@@ -30,6 +40,9 @@ $(NAME): $(O_FILE)
 %.o: %.s $(HEAD)
 	nasm -f macho64 $<
 
+bonus:
+	$(MAKE) ADD_BONUS=1 all
+
 clean:
 	@rm -f $(O_FILE)
 
@@ -39,4 +52,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re bonus
