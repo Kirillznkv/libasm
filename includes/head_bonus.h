@@ -6,13 +6,14 @@
 /*   By: kshanti <kshanti@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/01 01:15:56 by kshanti           #+#    #+#             */
-/*   Updated: 2021/04/01 01:16:13 by kshanti          ###   ########.fr       */
+/*   Updated: 2021/04/01 02:16:57 by kshanti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef HEAD_BONUS_H
 # define HEAD_BONUS_H
 
+# include "unistd.h"
 # include "string.h"
 # include "stdlib.h"
 # include "stdio.h"

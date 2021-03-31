@@ -6,7 +6,7 @@
 #    By: kshanti <kshanti@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/29 23:36:22 by kshanti           #+#    #+#              #
-#    Updated: 2021/04/01 01:30:48 by kshanti          ###   ########.fr        #
+#    Updated: 2021/04/01 02:51:52 by kshanti          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,6 +30,9 @@ else
 endif
 
 all:
+	@echo ##################################
+	@echo #gcc main.c main_utils.c libasm.a#
+	@echo ##################################
 	@$(MAKE) $(NAME) -j 4
 
 $(NAME): $(O_FILE)
