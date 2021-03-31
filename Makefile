@@ -6,7 +6,7 @@
 #    By: kshanti <kshanti@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/29 23:36:22 by kshanti           #+#    #+#              #
-#    Updated: 2021/04/01 00:58:37 by kshanti          ###   ########.fr        #
+#    Updated: 2021/04/01 01:18:50 by kshanti          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,23 +22,27 @@ S_FILE =		$(SRCS)ft_strlen.s $(SRCS)ft_strcpy.s\
 S_FILE_BONUS =	$(BN)ft_list_size_bonus.s
 
 ifdef ADD_BONUS
-	HEAD = head.h
 	O_FILE = $(S_FILE:.s=.o) $(S_FILE_BONUS:.s=.o)
 else
-	HEAD = head_bonus.h
 	O_FILE = $(S_FILE:.s=.o)
+endif
+
+ifdef ADD_BONUS
+	HEAD = ./includes/head.h
+else
+	HEAD = ./includes/head_bonus.h
 endif
 
 
 all:
-	$(MAKE) $(NAME) -j 4
+	@$(MAKE) $(NAME) -j 4
 
 $(NAME): $(O_FILE)
-	ar -rcs $(NAME) $(O_FILE)
-	gcc $(NAME) main.c
+	@ar -rcs $(NAME) $(O_FILE)
+	@gcc $(NAME) main.c
 
 %.o: %.s $(HEAD)
-	nasm -f macho64 $<
+	@nasm -f macho64 $<
 
 bonus:
 	$(MAKE) ADD_BONUS=1 all

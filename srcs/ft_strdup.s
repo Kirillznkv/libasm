@@ -1,9 +1,9 @@
-global _ft_strdup
-extern ___error
-extern _malloc
-extern _ft_strcpy
-extern _ft_strlen
 section .text
+	global _ft_strdup
+	extern ___error
+	extern _malloc
+	extern _ft_strcpy
+	extern _ft_strlen
 _ft_strdup:
 	cmp rdi, 0
 	je .nul

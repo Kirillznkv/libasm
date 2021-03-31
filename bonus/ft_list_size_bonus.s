@@ -1,5 +1,5 @@
-global _ft_list_size
 section .text
+	global _ft_list_size
 _ft_list_size:
 	xor		rax, rax
 .loop:

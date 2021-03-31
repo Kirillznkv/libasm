@@ -1,7 +1,11 @@
-global _ft_strcmp
 section .text
+	global _ft_strcmp
 _ft_strcmp:
 	mov rax, -1
+	cmp rdi, 0
+	je .error
+	cmp rsi, 0
+	je .error
 	xor rdx, rdx
 	xor rcx, rcx
 .loop:
@@ -16,4 +20,6 @@ _ft_strcmp:
 	xor rax, rax
 	add rax, rcx
 	sub rax, rdx
+	ret
+.error:
 	ret
