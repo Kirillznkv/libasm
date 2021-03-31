@@ -3,6 +3,10 @@ global _ft_strcpy
 section .text
 _ft_strcpy:
 	xor rax, rax
+	cmp rdi, 0
+	je .error
+	cmp rsi, 0
+	je .error
 .loop:
 	mov dl, byte[rsi + rax]
 	mov byte[rdi + rax], dl
@@ -12,4 +16,6 @@ _ft_strcpy:
 	jmp .loop
 .finish:
 	mov rax, rdi
+	ret
+.error:
 	ret
