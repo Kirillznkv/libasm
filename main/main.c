@@ -5,31 +5,31 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: kshanti <kshanti@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/30 00:14:04 by kshanti           #+#    #+#             */
-/*   Updated: 2021/04/01 02:48:41 by kshanti          ###   ########.fr       */
+/*   Created: 2021/04/01 03:03:39 by kshanti           #+#    #+#             */
+/*   Updated: 2021/04/01 03:20:06 by kshanti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/head_bonus.h"
+#include "../includes/head.h"
 
 void	check_write(void);
 void	check_read(void);
-void	check_bonus(void);
+void	check_strdup(void);
 
-void	check_strlen()
+void	check_strlen(void)
 {
-	printf("########################ft_strlen################################\n");
+	printf("########################ft_strlen##############################\n");
 	printf("#\t%zu", ft_strlen("12345"));
 	printf("(%zu)\n", strlen("12345"));
 	printf("#\t%zu", ft_strlen(""));
 	printf("(%zu)\n", strlen(""));
 }
 
-void	check_strcpy()
+void	check_strcpy(void)
 {
 	char	*s;
 
-	printf("########################ft_strcpy################################\n");
+	printf("########################ft_strcpy##############################\n");
 	printf("#\t%s", ft_strcpy(NULL, NULL));
 	printf("(seg)\n");
 	s = strdup("");
@@ -46,9 +46,9 @@ void	check_strcpy()
 	free(s);
 }
 
-void	check_strcmp()
+void	check_strcmp(void)
 {
-	printf("########################ft_strcmp################################\n");
+	printf("########################ft_strcmp##############################\n");
 	printf("#\t%d", ft_strcmp(NULL, NULL));
 	printf("(seg)\n");
 	printf("#\t%d", ft_strcmp("abc", "abc"));
@@ -61,26 +61,7 @@ void	check_strcmp()
 	printf("(%d)\n", strcmp("abc", "abca"));
 }
 
-void	check_strdup()
-{
-	char	*str;
-
-	printf("########################ft_strdup################################\n");
-	str = ft_strdup("abc");
-	printf("#\t%s(abc)\n", str);
-	if (str)
-		free(str);
-	str = ft_strdup("");
-	printf("#\t%s()\n", str);
-	if (str)
-		free(str);
-	str = ft_strdup(NULL);
-	printf("#\t%s(null)\n", str);
-	if (str)
-		free(str);
-}
-
-int		main()
+int	main(void)
 {
 	check_strlen();
 	check_strcpy();
@@ -88,7 +69,6 @@ int		main()
 	check_strdup();
 	check_write();
 	check_read();
-
-	check_bonus();
+	printf("###############################################################\n");
 	return (0);
 }

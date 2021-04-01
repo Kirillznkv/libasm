@@ -6,7 +6,7 @@
 #    By: kshanti <kshanti@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/29 23:36:22 by kshanti           #+#    #+#              #
-#    Updated: 2021/04/01 02:51:52 by kshanti          ###   ########.fr        #
+#    Updated: 2021/04/01 03:23:26 by kshanti          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,18 +30,17 @@ else
 endif
 
 all:
-	@echo ##################################
-	@echo #gcc main.c main_utils.c libasm.a#
-	@echo ##################################
 	@$(MAKE) $(NAME) -j 4
 
 $(NAME): $(O_FILE)
+	# gcc main/main.c main/main_utils.c libasm.a
 	@ar -rcs $(NAME) $(O_FILE)
 
 %.o: %.s $(HEAD)
 	@nasm -f macho64 $<
 
 bonus:
+	#-------> gcc main/main_bonus.c main/main_utils.c libasm.a
 	@$(MAKE) ADD_BONUS=1 all
 
 clean:

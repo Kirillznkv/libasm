@@ -6,17 +6,36 @@
 /*   By: kshanti <kshanti@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/01 01:40:47 by kshanti           #+#    #+#             */
-/*   Updated: 2021/04/01 02:49:22 by kshanti          ###   ########.fr       */
+/*   Updated: 2021/04/01 03:20:06 by kshanti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/head_bonus.h"
+#include "../includes/head.h"
 
-void	check_write()
+void	check_strdup(void)
+{
+	char	*str;
+
+	printf("########################ft_strdup##############################\n");
+	str = ft_strdup("abc");
+	printf("#\t%s(abc)\n", str);
+	if (str)
+		free(str);
+	str = ft_strdup("");
+	printf("#\t%s()\n", str);
+	if (str)
+		free(str);
+	str = ft_strdup(NULL);
+	printf("#\t%s(null)\n", str);
+	if (str)
+		free(str);
+}
+
+void	check_write(void)
 {
 	int		a;
 
-	printf("#########################ft_write################################\n");
+	printf("#########################ft_write##############################\n");
 	a = ft_write(1, "abc", 3);
 	printf("(%d)\n", a);
 	a = ft_write(1, "", 0);
@@ -35,12 +54,12 @@ void	check_write()
 	printf("(%d)\n", a);
 }
 
-void	check_read()
+void	check_read(void)
 {
 	int		a;
 	char	str[50];
 
-	printf("##########################ft_read################################\n");
+	printf("##########################ft_read##############################\n");
 	a = read(0, &str, 5);
 	printf("%s(%d)\n", str, a);
 	printf("------->ERRORS:\n");
@@ -53,26 +72,4 @@ void	check_read()
 	a = ft_read(1, NULL, 3);
 	perror("error");
 	printf("(%d)\n", a);
-}
-
-void	check_bonus()
-{
-	t_list		*tmp;
-	int			res;
-
-	printf("############################bonus################################\n");
-	tmp = (t_list*)malloc(sizeof(t_list));
-	tmp->next = NULL;
-	res = ft_list_size(tmp);
-	printf("#\t%d(1)\n", res);
-	tmp->next = (t_list*)malloc(sizeof(t_list));
-	tmp->next->next = NULL;
-	res = ft_list_size(tmp);
-	printf("#\t%d(2)\n", res);
-	tmp->next->next = (t_list*)malloc(sizeof(t_list));
-	tmp->next->next->next = NULL;
-	res = ft_list_size(tmp);
-	printf("#\t%d(3)\n", res);
-	free(tmp);
-	printf("#################################################################\n");
 }
